@@ -8,7 +8,7 @@
   <title>Captain's Rift — Roll for captain</title>
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Cinzel:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
 
     :root {
       --ink: #080d17;
@@ -78,8 +78,10 @@
     .wheel { position: absolute; inset: 14px; border-radius: 50%; border: 10px solid #172943; outline: 2px solid rgba(231,181,91,.65); box-shadow: inset 0 0 0 2px rgba(255,255,255,.08), inset 0 0 36px rgba(0,0,0,.55), 0 13px 20px rgba(0,0,0,.38); transition: transform 5.8s cubic-bezier(.12,.78,.14,1); overflow: hidden; }
     .wheel::before { content: ''; position: absolute; inset: 9px; border-radius: 50%; border: 1px solid rgba(255,255,255,.28); pointer-events: none; z-index: 2; }
     .wheel::after { content: ''; position: absolute; inset: 48%; border-radius: 50%; background: #0b1423; border: 6px solid var(--gold); box-shadow: 0 0 0 5px rgba(11,20,35,.75), 0 0 20px rgba(53,214,231,.45); z-index: 4; }
-    .wheel-labels { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
-    .wheel-label { position: absolute; left: 50%; top: 50%; width: 42%; text-align: center; transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-90%) rotate(calc(var(--angle) * -1)); font-family: 'Barlow Condensed', sans-serif; font-size: clamp(15px, 2vw, 22px); letter-spacing: .03em; font-weight: 700; color: #07111d; text-shadow: 0 1px rgba(255,255,255,.22); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    @property --spin-rotation { syntax: '<angle>'; inherits: true; initial-value: 0deg; }
+    .wheel-labels { position: absolute; inset: 0; z-index: 3; pointer-events: none; --spin-rotation: 0deg; transition: --spin-rotation 5.8s cubic-bezier(.12,.78,.14,1); }
+    .wheel-label { position: absolute; left: calc(50% + var(--x)); top: calc(50% + var(--y)); width: var(--label-width, 43%); max-height: var(--label-height, 2.2em); display: grid; place-items: center; text-align: center; transform: translate(-50%, -50%) rotate(calc(-1 * var(--spin-rotation) + var(--label-angle, 0deg))); font-family: 'Cinzel', Georgia, serif; font-size: var(--label-size, clamp(11px, 1.55vw, 17px)); line-height: .96; letter-spacing: .08em; font-weight: 700; text-transform: uppercase; color: #fff4d2; text-shadow: 0 1px 0 #07111d, 0 0 9px rgba(7,17,29,.78); overflow: hidden; overflow-wrap: anywhere; }
+    .wheel-label.compact { width: max-content; max-width: none; max-height: none; white-space: nowrap; overflow: visible; letter-spacing: .05em; --label-angle: 90deg; }
     .center-badge { position: absolute; z-index: 6; inset: 43%; display: grid; place-items: center; pointer-events: none; }
     .center-badge span { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; font-size: 10px; letter-spacing: .15em; color: var(--gold); text-align: center; line-height: 1.1; }
     .spin-button { position: absolute; z-index: 10; bottom: 20px; left: 50%; transform: translateX(-50%); border: 1px solid rgba(255,255,255,.18); background: linear-gradient(180deg, #f1c26a, #b8792e); color: #19120b; text-transform: uppercase; letter-spacing: .16em; font-weight: 800; font-size: 14px; padding: 14px 27px; border-radius: 999px; box-shadow: 0 8px 24px rgba(231,181,91,.24), inset 0 1px rgba(255,255,255,.5); transition: transform .2s, filter .2s; }
@@ -87,6 +89,15 @@
     .spin-button:active { transform: translateX(-50%) translateY(1px); }
     .spin-button:disabled { cursor: wait; filter: saturate(.6); opacity: .8; }
     .spin-button .spark { color: #fff0b5; margin-right: 7px; }
+    .insult-pop { position: absolute; z-index: 12; left: 50%; bottom: 80px; width: min(86%, 390px); padding: 13px 17px 15px; text-align: center; border: 1px solid rgba(231,181,91,.62); border-radius: 14px; background: linear-gradient(145deg, rgba(41, 31, 69, .98), rgba(12, 20, 35, .98)); box-shadow: 0 14px 34px rgba(0,0,0,.38), 0 0 26px rgba(140,123,255,.16); visibility: hidden; opacity: 0; transform: translateX(-50%) translateY(18px) scale(.92); pointer-events: auto; }
+    .insult-pop.show { visibility: visible; animation: insult-arrive .65s cubic-bezier(.18,.8,.24,1) forwards; }
+    .insult-pop::before { content: '✦'; position: absolute; top: -13px; left: 50%; transform: translateX(-50%); padding: 0 7px; color: var(--gold); background: #1f1a38; font-size: 17px; }
+    .insult-kicker { display: block; color: var(--cyan); text-transform: uppercase; letter-spacing: .2em; font-size: 10px; font-weight: 800; margin-bottom: 6px; }
+    .insult-name { display: block; color: var(--gold); font-family: 'Cinzel', Georgia, serif; font-size: 17px; line-height: 1.15; margin-bottom: 5px; }
+    .insult-text { display: block; color: #edf5ff; font-family: 'Cinzel', Georgia, serif; font-size: 13px; line-height: 1.35; }
+    .insult-ok { margin-top: 12px; border: 1px solid rgba(53,214,231,.4); border-radius: 999px; padding: 7px 15px; color: var(--cyan); background: rgba(53,214,231,.1); text-transform: uppercase; letter-spacing: .12em; font-size: 11px; font-weight: 800; }
+    .insult-ok:hover { background: rgba(53,214,231,.2); border-color: var(--cyan); }
+    @keyframes insult-arrive { 0% { visibility: visible; opacity: 0; transform: translateX(-50%) translateY(18px) scale(.92); } 100% { opacity: 1; transform: translateX(-50%) translateY(-4px) scale(1); } }
 
     .side { display: flex; flex-direction: column; gap: 22px; }
     .roster-card { padding: 26px; flex: 1; }
@@ -134,7 +145,8 @@
       .wheel-header { top: 20px; left: 20px; right: 20px; }
       .wheel-wrap { margin-top: 44px; width: min(100%, 390px); }
       .wheel { inset: 10px; border-width: 7px; }
-      .wheel-label { font-size: clamp(13px, 4vw, 18px); }
+      .wheel-label { font-size: var(--label-size, clamp(10px, 3.2vw, 15px)); }
+      .insult-pop { bottom: 70px; }
       .spin-button { bottom: 10px; font-size: 12px; padding: 13px 21px; }
       .side { display: flex; gap: 14px; }
       .roster-card, .result-card { padding: 20px; }
@@ -164,11 +176,11 @@
         <div class="wheel-header"><div><div class="eyebrow">The deciding ritual</div><h1>Who leads the climb?</h1></div><div class="wheel-count" id="wheelCount">5 players<br>equal odds</div></div>
         <div class="wheel-wrap">
           <div class="pointer" aria-hidden="true"></div>
-          <div class="wheel" id="wheel" role="img" aria-label="Captain selection wheel"></div>
-          <div class="wheel-labels" id="wheelLabels" aria-hidden="true"></div>
-          <div class="center-badge" aria-hidden="true"><span>spin<br>the rift</span></div>
+          <div class="wheel" id="wheel" role="img" aria-label="Captain selection wheel"><div class="wheel-labels" id="wheelLabels" aria-hidden="true"></div></div>
+          <div class="center-badge" aria-hidden="true"></div>
           <button class="spin-button" id="spinButton" type="button"><span class="spark">✦</span>Roll the wheel</button>
         </div>
+        <div class="insult-pop" id="insultPop" role="status" aria-live="polite"><span class="insult-kicker">Rift verdict</span><span class="insult-name" id="insultName"></span><span class="insult-text" id="insultText"></span><button class="insult-ok" id="insultOk" type="button">OK, I accept my fate</button></div>
       </section>
 
       <div class="side">
@@ -194,17 +206,32 @@
     (() => {
       const MAX_PLAYERS = 12;
       const colors = ['#35d6e7', '#e7b55b', '#8c7bff', '#f079a7', '#76d28d', '#ee9065', '#5c9ef7', '#c5dd70', '#e2a4ff', '#ffcf70', '#60c6b0', '#ff7b77'];
-      const roasts = [
-        'Please remember: being captain is not the same as having a plan.',
-        'The lobby has spoken. Try not to int before the first dragon.',
-        'Shot-caller by fate, not by KDA. Make it count.',
-        'A bold choice from the ancient wheel. Your team is already nervous.',
-        'You wanted responsibility. The Rift has receipts.',
-        'Congratulations — four people now have someone else to blame.',
-        'The crown is yours. May your pings be fewer than your missed skillshots.',
-        'Leadership acquired. Mechanical diff still pending.'
+      const fallbackRoasts = [
+        '{name}, your mama raised a leader. The Rift got a backseat driver with a death timer.',
+        '{name}, your mama said you could be anything. Today you chose a 0/7 power spike.',
+        '{name}, even your mama would dodge this lobby after seeing your champion select.',
+        '{name}, your mama’s Wi-Fi has a stronger connection to reality than your macro.',
+        '{name}, your family tree has more carries than your match history.',
+        '{name}, four people delegated shot-calling to you for plausible deniability.',
+        '{name}, your minimap has been promoted to co-captain. Please consult it occasionally.',
+        '{name}, your next missed skillshot is officially a leadership decision.',
+        '{name}, the crown is yours. Try not to spend it all on a level-two tower dive.',
+        '{name}, the enemy team is filing a missing-person report for your map awareness.',
+        '{name}, your brain has two tabs open: “trust me” and “why did we lose?”',
+        '{name}, you’re the reason the tutorial asks if everyone is sure.',
+        '{name}, the team needed a captain and got the least busy liability.',
+        '{name}, your KDA looks like an emergency contact number.',
+        '{name}, your shot-calling has the confidence of a poster and the accuracy of a broken GPS.',
+        '{name}, if excuses dealt damage, you’d be Challenger.',
+        '{name}, your mother’s group chat has a better draft strategy than this.',
+        '{name}, even the minions are pinging you back to base.',
+        '{name}, the wheel chose you because chaos needed a spokesperson.',
+        '{name}, you have the mechanical consistency of a shopping trolley with one bad wheel.',
+        '{name}, you are not the main character. You are the pop-up asking to enable notifications.',
+        '{name}, your reign begins now. Please keep the surrender vote away from the throne.'
       ];
-      let players = ['Milo', 'Rin', 'Sage', 'Nova', 'Jules'];
+      let roasts = [...fallbackRoasts];
+      let players = ['ShinyUnicorn', 'Madragor', 'PapaKarlo', 'amg28', 'Lostforwords'];
       let rotation = 0;
       let spinning = false;
 
@@ -220,6 +247,20 @@
       const resultEmpty = document.getElementById('resultEmpty');
       const playerCount = document.getElementById('playerCount');
       const wheelCount = document.getElementById('wheelCount');
+      const insultPop = document.getElementById('insultPop');
+      const insultName = document.getElementById('insultName');
+      const insultText = document.getElementById('insultText');
+      const insultOk = document.getElementById('insultOk');
+
+      fetch('./roasts.txt', { cache: 'no-store' })
+        .then(response => response.ok ? response.text() : Promise.reject(new Error('Roast file unavailable')))
+        .then(text => {
+          const loadedRoasts = text.split(/\r?\n/)
+            .map(line => line.trim())
+            .filter(line => line && !line.startsWith('#'));
+          if (loadedRoasts.length) roasts = loadedRoasts;
+        })
+        .catch(() => {});
 
       function render() {
         const count = players.length;
@@ -234,8 +275,20 @@
         }
         spinButton.disabled = count < 2 || spinning;
         const step = 360 / count;
-        wheel.style.background = 'conic-gradient(from -90deg, ' + players.map((_, i) => colors[i] + ' ' + (i * step) + 'deg ' + ((i + 1) * step - .8) + 'deg').join(', ') + ')';
-        labels.innerHTML = players.map((name, i) => '<span class="wheel-label" style="--angle:' + (i * step + step / 2) + 'deg">' + escapeHtml(name) + '</span>').join('');
+        wheel.style.background = 'conic-gradient(from 0deg, ' + players.map((_, i) => colors[i] + ' ' + (i * step) + 'deg ' + ((i + 1) * step - .8) + 'deg').join(', ') + ')';
+        const labelRadius = Math.min(labels.clientWidth * .27, 132);
+        const sliceGap = Math.max(2, Math.min(5, step * .08));
+        const labelWidth = Math.max(42, Math.min(170, 2 * labelRadius * Math.sin((step - sliceGap) * Math.PI / 360)));
+        const longestName = Math.max(1, ...players.map(name => name.length));
+        const labelFontSize = Math.max(11, Math.min(17, 20 - count * .45, 170 / Math.max(10, longestName)));
+        const labelHeight = Math.max(30, Math.min(52, labelWidth * .84));
+        const labelClass = count >= 8 ? 'wheel-label compact' : 'wheel-label';
+        labels.innerHTML = players.map((name, i) => {
+          const angle = (i * step + step / 2) * Math.PI / 180;
+          const x = Math.sin(angle) * labelRadius;
+          const y = -Math.cos(angle) * labelRadius;
+          return '<span class="' + labelClass + '" style="--x:' + x.toFixed(2) + 'px;--y:' + y.toFixed(2) + 'px;--label-width:' + labelWidth.toFixed(2) + 'px;--label-height:' + labelHeight.toFixed(2) + 'px;--label-size:' + labelFontSize.toFixed(2) + 'px">' + escapeHtml(name) + '</span>';
+        }).join('');
       }
 
       function escapeHtml(value) { return value.replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[char])); }
@@ -266,6 +319,7 @@
         resultName.textContent = 'Rolling…';
         resultRoast.textContent = '';
         resultEmpty.hidden = true;
+        insultPop.classList.remove('show');
         const winnerIndex = Math.floor(Math.random() * players.length);
         const step = 360 / players.length;
         const center = winnerIndex * step + step / 2;
@@ -273,14 +327,25 @@
         const alignment = (360 - ((center + current) % 360)) % 360;
         rotation += 360 * 6 + alignment;
         wheel.style.transform = 'rotate(' + rotation + 'deg)';
+        labels.style.setProperty('--spin-rotation', rotation + 'deg');
         window.setTimeout(() => {
           const winner = players[winnerIndex];
           resultName.textContent = winner;
-          resultRoast.textContent = roasts[Math.floor(Math.random() * roasts.length)].replace('You', winner);
+          resultRoast.textContent = roasts[Math.floor(Math.random() * roasts.length)].replaceAll('{name}', winner);
+          insultName.textContent = winner;
+          insultText.textContent = resultRoast.textContent;
+          void insultPop.offsetWidth;
+          insultPop.classList.add('show');
+          insultOk.focus();
           resultCard.classList.add('has-winner');
           spinning = false;
           render();
         }, 5900);
+      });
+
+      insultOk.addEventListener('click', () => {
+        insultPop.classList.remove('show');
+        spinButton.focus();
       });
 
       render();

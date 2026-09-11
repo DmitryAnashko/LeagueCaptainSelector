@@ -1,0 +1,72 @@
+# Captain's Rift roast list
+# One roast per line. Use {name} wherever the selected player's name should appear.
+
+{name}, your mama raised a leader. The Rift got a backseat driver with a death timer.
+{name}, your mama said you could be anything. Today you chose a 0/7 power spike.
+{name}, even your mama would dodge this lobby after seeing your champion select.
+{name}, your mama's Wi-Fi has a stronger connection to reality than your macro.
+{name}, your family tree has more carries than your match history.
+{name}, four people delegated shot-calling to you for plausible deniability.
+{name}, your minimap has been promoted to co-captain. Please consult it occasionally.
+{name}, your next missed skillshot is officially a leadership decision.
+{name}, the crown is yours. Try not to spend it all on a level-two tower dive.
+{name}, the enemy team is filing a missing-person report for your map awareness.
+{name}, your brain has two tabs open: “trust me” and “why did we lose?”
+{name}, you're the reason the tutorial asks if everyone is sure.
+{name}, the team needed a captain and got the least busy liability.
+{name}, your KDA looks like an emergency contact number.
+{name}, your shot-calling has the confidence of a poster and the accuracy of a broken GPS.
+{name}, if excuses dealt damage, you'd be Challenger.
+{name}, your mother's group chat has a better draft strategy than this.
+{name}, even the minions are pinging you back to base.
+{name}, the wheel chose you because chaos needed a spokesperson.
+{name}, you have the mechanical consistency of a shopping trolley with one bad wheel.
+{name}, you are not the main character. You are the pop-up asking to enable notifications.
+{name}, your reign begins now. Keep the surrender vote away from the throne.
+
+# User-provided roast pack
+{name}, you absolute fucking liability, the team is already better without your dogshit shotcalls.
+{name}, your brain is so empty the enemy team can hear the fucking echo when you open your mouth.
+{name}, stop acting like you know how to play, you inting piece of shit.
+{name}, the only thing you’re good at is feeding and making excuses, you useless cunt.
+{name}, your map awareness is non-existent, you blind fucking donkey.
+{name}, every time you talk the winrate drops another 10%, shut the fuck up already.
+{name}, you’re not a captain, you’re a walking int button with a microphone and zero braincells.
+{name}, the enemy team should send you a thank-you card for all the free kills, you soft-inting whore.
+{name}, your KDA is so fucking disgusting it should come with a content warning and a therapy referral.
+{name}, if stupidity was a champion you’d be a one-trick Challenger, you braindead fuck.
+{name}, the surrender vote is the only smart decision this team has made since you started yapping.
+{name}, you play like someone who still thinks wards are optional, you low-IQ parasite.
+{name}, every call you make is a crime against this lobby, you griefing bastard.
+{name}, the jungle is safer than following any of your retarded fucking pathing.
+{name}, you’re the reason people invent new mute options, you insufferable fucking clown.
+{name}, your mechanical skill is so shit even the practice dummy looks better than you.
+{name}, stop acting like you matter, you’re just free gold with a bad attitude and a tiny ego.
+{name}, the only leadership you provide is leading us straight into a loss, you absolute fucking waste.
+{name}, your decision-making is so bad it should be studied as a medical condition, you retarded fuck.
+{name}, even the minions are pathing around you out of pure disgust, you useless piece of shit.
+{name}, you’re not throwing the game, you’re force-feeding it to the enemy like a desperate whore.
+{name}, if the game allowed it the team would already have voted your dumb ass out of the match.
+{name}, your ego is the only thing bigger than the hole you keep digging for us, you delusional cunt.
+{name}, every time you die it’s not a mistake, it’s a personality trait, you chronic feeder.
+{name}, the Rift itself is embarrassed to have your dogshit play on it.
+{name}, you’re the human equivalent of a permanent soft int, you griefing fuck.
+{name}, shut the fuck up and let someone with an actual brain take the calls.
+{name}, your presence alone is enough to make this game completely unwinnable, you cancer.
+{name}, the enemy midlaner is carrying harder by just existing than you are by “leading”, you passenger bitch.
+{name}, you’re not unlucky, you’re just pure shit and too stupid to notice.
+{name}, the only thing consistent about you is how consistently you ruin every single game.
+{name}, if inting paid money you’d finally be useful for something, you professional feeder.
+{name}, your shotcalls have the strategic depth of a goldfish with severe brain damage.
+{name}, the team would rather play 4v5 than listen to another word from your dumb fucking mouth.
+{name}, you’re the reason this lobby smells like pure failure and cum-stained keyboards.
+{name}, your ultimate has better timing than your brain, you late-ass bitch.
+{name}, even your death recap is embarrassed to show your fucking face.
+{name}, the only thing you’re captaining is the SS Feeding Frenzy, you walking disaster.
+{name}, if the shop sold braincells you’d still be too broke to buy any, you silver-tier cunt.
+{name}, your pathing is so bad the enemy support is outplaying you by existing, you blind fuck.
+{name}, stop trying to lead, you’re not qualified to lead a circlejerk let alone a ranked game.
+{name}, the only thing harder than your ego is how soft your inting is, you pathetic bitch.
+{name}, you’re living proof that some people should just stay in norms and never touch ranked.
+{name}, your calls are so bad even the enemy team feels second-hand embarrassment for you.
+{name}, if this was a gangbang you’d still somehow find a way to feed the other side.
