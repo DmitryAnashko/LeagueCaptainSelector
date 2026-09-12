@@ -1,0 +1,11 @@
+# Local development files (dist contains the app source and must stay tracked)
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
