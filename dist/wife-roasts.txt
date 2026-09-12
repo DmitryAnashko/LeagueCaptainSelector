@@ -1,0 +1,24 @@
+# Captain's Rift — Wife Mode
+# Used only for ShinyUnicorn, Ilma, or Wife (case insensitive).
+# One message per line. {name} becomes the selected captain's name.
+
+{name}, your map awareness took a little holiday. We still believe in you, captain.
+{name}, that was a very creative route to base. Next time, try surviving. You have got this!
+{name}, one missed skillshot does not cancel main-character energy. Lead the way.
+{name}, you have the confidence of a fed carry and the shopping habits of a confused support. We love the ambition.
+{name}, the minimap misses you. Give it a little attention, then go win this.
+{name}, your strategy is mostly vibes, but honestly, the vibes are excellent.
+{name}, you did not miss that skillshot. You were warning the scenery. The next one is yours.
+{name}, captain suits you. So would a control ward. Treat yourself to both.
+{name}, your recall timing is a tiny work in progress. Your comeback potential is enormous.
+{name}, you brought snacks-level morale to a ranked-level problem. That is actual leadership.
+{name}, your pathing has a scenic-route option nobody else unlocked. We will follow you anyway.
+{name}, the plan may be questionable, but the captain is a keeper. Let's make it work.
+{name}, you are one good teamfight away from making that last decision look intentional.
+{name}, your inventory could use some guidance. Luckily, your team could use your courage.
+{name}, you ping like you are ordering room service. Fair enough, captain. We are on our way.
+{name}, even the best captains occasionally flash into a wall. Yours just had excellent dramatic timing.
+{name}, you have already won the most important objective: getting everyone to play together.
+{name}, take a breath, trust yourself, and make the call. Your team has your back.
+{name}, the crown is yours. A little chaos, a little teamwork, and this could be a great game.
+{name}, your last plan needed a patch. This next one might be brilliant. Go on, captain.

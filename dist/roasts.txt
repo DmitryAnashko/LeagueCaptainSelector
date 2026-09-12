@@ -1,30 +1,5 @@
 # Captain's Rift roast list
 # One roast per line. Use {name} wherever the selected player's name should appear.
-
-{name}, your mama raised a leader. The Rift got a backseat driver with a death timer.
-{name}, your mama said you could be anything. Today you chose a 0/7 power spike.
-{name}, even your mama would dodge this lobby after seeing your champion select.
-{name}, your mama's Wi-Fi has a stronger connection to reality than your macro.
-{name}, your family tree has more carries than your match history.
-{name}, four people delegated shot-calling to you for plausible deniability.
-{name}, your minimap has been promoted to co-captain. Please consult it occasionally.
-{name}, your next missed skillshot is officially a leadership decision.
-{name}, the crown is yours. Try not to spend it all on a level-two tower dive.
-{name}, the enemy team is filing a missing-person report for your map awareness.
-{name}, your brain has two tabs open: “trust me” and “why did we lose?”
-{name}, you're the reason the tutorial asks if everyone is sure.
-{name}, the team needed a captain and got the least busy liability.
-{name}, your KDA looks like an emergency contact number.
-{name}, your shot-calling has the confidence of a poster and the accuracy of a broken GPS.
-{name}, if excuses dealt damage, you'd be Challenger.
-{name}, your mother's group chat has a better draft strategy than this.
-{name}, even the minions are pinging you back to base.
-{name}, the wheel chose you because chaos needed a spokesperson.
-{name}, you have the mechanical consistency of a shopping trolley with one bad wheel.
-{name}, you are not the main character. You are the pop-up asking to enable notifications.
-{name}, your reign begins now. Keep the surrender vote away from the throne.
-
-# User-provided roast pack
 {name}, you absolute fucking liability, the team is already better without your dogshit shotcalls.
 {name}, your brain is so empty the enemy team can hear the fucking echo when you open your mouth.
 {name}, stop acting like you know how to play, you inting piece of shit.
@@ -70,3 +45,34 @@
 {name}, you’re living proof that some people should just stay in norms and never touch ranked.
 {name}, your calls are so bad even the enemy team feels second-hand embarrassment for you.
 {name}, if this was a gangbang you’d still somehow find a way to feed the other side.
+
+{name}, you walk up first every fight like you’re trying to get adopted by the enemy team, you suicidal whore.
+{name}, the only thing random about this ARAM is how consistently you int every single game.
+{name}, stop calling engages when your champ has the durability of wet toilet paper, you braindead fuck.
+{name}, the enemy team is treating your health bar like a free buffet, you soft-inting slut.
+{name}, your positioning is so dogshit the bushes are filing a restraining order against you.
+{name}, every time you open your mouth another teammate dies because of your retarded call.
+{name}, you’re not leading, you’re just the reason this ARAM turned into a slaughterhouse.
+{name}, if the game had a “ban this captain” button it would already be on permanent cooldown.
+{name}, the only strategy you know is “die first and blame the random”, you passenger cunt.
+{name}, even the practice tool bots would mute you mid-fight, you insufferable piece of shit.
+{name}, your ultimate is the only thing that does anything useful, the rest of you is pure dead weight.
+{name}, the enemy team just typed “ez” after farming you for the fifth time, you free kill machine.
+{name}, stop acting like you understand teamfighting, you couldn’t coordinate a circlejerk.
+{name}, the ARAM gods gave you a champ and you still somehow turned it into a feeding simulator.
+{name}, your KDA is so disgusting it should be reported for graphic content, you inting bastard.
+{name}, the only thing you’re captaining is the express train to defeat, you useless fuck.
+{name}, every engage you call is just another free ticket for the enemy to dive us, you griefing clown.
+{name}, if stupidity gave gold you’d be the richest player in the lobby, you absolute vegetable.
+{name}, shut the fuck up before you turn this 5v5 into a permanent 4v5, you cancerous bitch.
+{name}, the bushes are safer than standing next to you, you walking disaster.
+{name}, you’re not unlucky, you’re just permanently shit at every single random champ you get.
+{name}, the team would rather take a 4v5 than listen to another one of your dogshit shotcalls.
+{name}, your ego is the only tank on this team and it’s still somehow feeding, you delusional cunt.
+{name}, the enemy midlaner is getting more value from killing you than from their actual items.
+{name}, if this ARAM had a surrender button at 3 minutes it would already be pressed because of your dumb ass.
+{name}, the only consistent thing about you is how consistently you ruin every teamfight.
+{name}, stop trying to lead when you can’t even lead your own champion out of the enemy’s range.
+{name}, your presence alone is enough to make this lobby toxic and unwinnable, you pure cancer.
+{name}, the ARAM random is already better than your brain, you low-IQ parasite.
+{name}, even the minions are embarrassed to be on the same map as you, you fucking liability.
