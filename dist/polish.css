@@ -1,0 +1,63 @@
+/* Presentation only: wheel geometry, timing and selection stay in index.html. */
+.card {
+  border-color: rgba(154, 182, 218, .2);
+  box-shadow: inset 0 1px 0 rgba(223, 238, 255, .06), 0 24px 60px rgba(0, 0, 0, .35);
+}
+.wheel-card {
+  background: radial-gradient(ellipse at 50% 48%, rgba(38, 124, 147, .14), transparent 65%), linear-gradient(155deg, #15253a, #0b1321 75%);
+}
+.wheel-header::after {
+  content: ''; position: absolute; bottom: -16px; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, rgba(231, 181, 91, .4), rgba(53, 214, 231, .12) 65%, transparent);
+}
+.brand-mark { box-shadow: inset 0 1px 0 #ffffff1a, 0 0 28px #35d6e71a; }
+.wheel-wrap::before { opacity: .35; box-shadow: 0 0 48px 4px #35d6e71f, 0 0 85px #e7b55b14; }
+.wheel-wrap::after {
+  inset: 2px; border: 1px solid #e7b55b40; opacity: .7;
+  background: repeating-conic-gradient(from -1deg, #f4d79899 0deg 1deg, transparent 1deg 10deg);
+  mask-image: radial-gradient(circle, transparent 68%, #000 68.5%);
+}
+.wheel { border-color: #142336; outline-color: #dab36cc2; }
+.wheel::before { box-shadow: inset 0 0 0 4px #07101c0d; border-color: #fff0c75c; }
+.wheel::after {
+  background: radial-gradient(circle at 35% 25%, #91f0ee, #248398 45%, #102639 75%);
+  border-color: #ecc778; box-shadow: 0 0 0 4px #102033, 0 0 0 5px #f2c66c80, 0 3px 12px #0009;
+}
+.wheel-effects {
+  background: radial-gradient(circle at 38% 24%, #fff9e01a, transparent 42%), radial-gradient(circle, transparent 48%, #06142538 85%, #06142570 100%);
+  box-shadow: inset 0 1px 2px #fff4cd66;
+}
+.wheel-label { stroke-width: 1px; stroke: #13243b; }
+.spin-button {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: linear-gradient(180deg, #f8db94, #e6b85f 45%, #b57b31);
+  border-color: #ffe7ad9c;
+  box-shadow: inset 0 1px 0 #fff3c9, inset 0 -2px 0 #754b2966, 0 6px 24px #e7b55b26;
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+.spin-button::after {
+  content: ''; position: absolute; inset: -50%; pointer-events: none;
+  background: linear-gradient(110deg, transparent 40%, #fff8dc66 50%, transparent 60%);
+  transform: translateX(-90%);
+}
+.spin-button:hover:not(:disabled)::after { animation: button-gleam .85s ease-out; }
+.spin-button:hover:not(:disabled) { box-shadow: inset 0 1px 0 #fff3c9, 0 8px 28px #e7b55b45; }
+.spin-button:disabled { transform: none; cursor: wait; }
+.spin-button:disabled .spark { animation: star-turn 3s linear infinite; }
+.roster { border-style: solid; border-color: #8fa5c21f; align-items: flex-start; }
+.player-chip { background: linear-gradient(145deg, #213751, #16253b); box-shadow: inset 0 1px 0 #ffffff08; transition: border-color .2s, background .2s; }
+.player-chip:hover { border-color: #e7b55b66; }
+.name-input, .add-button, .insult-ok { transition: border-color .2s, background .2s, box-shadow .2s; }
+.result-card.has-winner { border-color: #e7b55b66; animation: result-reveal .7s ease-out both; }
+.result-card.has-winner .result-name { color: #ffe2a5; text-shadow: 0 2px 20px #e7b55b22; overflow-wrap: anywhere; }
+.insult-pop { padding: 20px; background: radial-gradient(ellipse at 50% 0%, #304c61, transparent 85%), #0c1728; box-shadow: 0 24px 60px #0009, inset 0 1px 0 #ffe6a833; }
+.insult-name { font-size: 20px; margin-bottom: 10px; overflow-wrap: anywhere; }
+.insult-text { font-family: 'DM Sans', system-ui, sans-serif; font-size: 14px; line-height: 1.55; }
+.insult-ok { padding: 10px 16px; }
+.insult-ok:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+@keyframes button-gleam { to { transform: translateX(90%); } }
+@keyframes star-turn { to { transform: rotate(360deg); } }
+@keyframes result-reveal { from { opacity: .5; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .spin-button:disabled .spark, .spin-button:hover:not(:disabled)::after, .result-card.has-winner { animation: none; }
+}
