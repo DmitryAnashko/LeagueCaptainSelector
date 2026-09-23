@@ -56,19 +56,16 @@ Save the file and reload the page to load changes. Messages are chosen randomly 
 
 ## Wife mode
 
-ShinyUnicorn, Ilma, and Wife use the gentle list by default. Matching is case-insensitive and ignores surrounding whitespace.
+There are no automatic wife-mode names. Matching is case-insensitive and ignores surrounding whitespace. The former defaults (ShinyUnicorn, Ilma, and Wife) are removed from older saved lists once when this version loads; other saved names are preserved. Any name can then be added manually.
 
-To add another name, click the same player's slice **three times within 700 milliseconds** while the wheel is stopped. Click inside the slice, away from the center hub and outer border. This shortcut intentionally has no visible confirmation. It only adds names; it is not a toggle.
+To add a name, click the same player's slice **three times within 700 milliseconds** while the wheel is stopped. Click inside the slice, away from the center hub and outer border. This shortcut intentionally has no visible confirmation. It only adds names; it is not a toggle.
 
 Added names are saved in that browser's `localStorage`. They survive reloads but are not synchronized between browsers or different site addresses. Wife mode changes only the roast list, not the odds of winning.
 
-To print the default and saved names, open your browser's developer console and run:
+To print the saved names, open your browser's developer console and run:
 
 ```js
-console.log([...new Set([
-  'shinyunicorn', 'ilma', 'wife',
-  ...JSON.parse(localStorage.getItem('captains-rift.wife-mode-names.v1') || '[]')
-])].join('\n'));
+console.log(JSON.parse(localStorage.getItem('captains-rift.wife-mode-names.v1') || '[]').join('\n'));
 ```
 
 To remove all names added with the shortcut, run:
@@ -78,7 +75,7 @@ localStorage.removeItem('captains-rift.wife-mode-names.v1');
 location.reload();
 ```
 
-The three built-in names remain in wife mode. If browser storage is blocked, additions work only for the current page session.
+After resetting, no names are in wife mode. If browser storage is blocked, additions work only for the current page session.
 
 ## Technology and project layout
 
@@ -95,7 +92,7 @@ dist/
   hosting.json      Existing Sites project configuration; not needed locally
 ```
 
-The `dist` folder contains the editable site itself, not generated build output. Default players, wife-mode aliases, and spin duration are configured in `dist/index.html`.
+The `dist` folder contains the editable site itself, not generated build output. Default players and spin duration are configured in `dist/index.html`.
 
 ## Disclaimer
 

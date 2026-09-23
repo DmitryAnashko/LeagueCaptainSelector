@@ -1,5 +1,5 @@
 # Captain's Rift — Wife Mode
-# Used only for ShinyUnicorn, Ilma, or Wife (case insensitive).
+# Used for names added to wife mode by triple-clicking their slice (case insensitive).
 # One message per line. {name} becomes the selected captain's name.
 
 {name}, your map awareness took a little holiday. We still believe in you, captain.

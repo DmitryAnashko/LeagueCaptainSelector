@@ -287,15 +287,25 @@
       let roasts = [...fallbackRoasts];
       const WIFE_NAMES_STORAGE_KEY = 'captains-rift.wife-mode-names.v1';
       const TRIPLE_CLICK_MS = 700;
-      const wifeModeNames = new Set(['shinyunicorn', 'ilma', 'wife', ...readSavedWifeNames()]);
+      const wifeModeNames = new Set(readSavedWifeNames());
       let sliceClick = null;
 
       function readSavedWifeNames() {
         try {
           const saved = JSON.parse(localStorage.getItem(WIFE_NAMES_STORAGE_KEY) || '[]');
-          return Array.isArray(saved)
+          let names = Array.isArray(saved)
             ? saved.filter(name => typeof name === 'string' && name.trim().length > 0 && name.trim().length <= 18).map(name => name.trim().toLowerCase())
             : [];
+          // Older versions saved the automatic defaults alongside manually added names.
+          const migrationKey = 'captains-rift.wife-mode-defaults-removed.v1';
+          if (localStorage.getItem(migrationKey) !== 'true') {
+            names = names.filter(name => !['shinyunicorn', 'ilma', 'wife'].includes(name));
+            try {
+              localStorage.setItem(WIFE_NAMES_STORAGE_KEY, JSON.stringify(names));
+              localStorage.setItem(migrationKey, 'true');
+            } catch { /* Keep the cleaned list for this session if storage is blocked. */ }
+          }
+          return names;
         } catch {
           return [];
         }
